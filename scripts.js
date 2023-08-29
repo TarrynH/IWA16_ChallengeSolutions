@@ -70,11 +70,11 @@ const createHtml = (athlete) => {
   const [latestRace] = races.slice(-1)
   const {date, time} = latestRace
 
-  const fragment = document.createDocumentFragment()
+  const fragment = document.createDocumentFragment();
 
   let title = document.createElement('h2');
   title.textContent = id;
-  fragment.append(title);
+  fragment.appendChild(title);
 
   const list = document.createElement('dl');
 
@@ -86,7 +86,7 @@ const createHtml = (athlete) => {
   const [first, second, third, fourth] = time;
   let total = first + second + third + fourth;
 
-  const hours = Math.floor(total/60);
+  const hours = Math.floor(total / 60);
   const minutes = total % 60;
 
   list.innerHTML = /* html */ `
@@ -103,8 +103,8 @@ const createHtml = (athlete) => {
     <dd>${hours.toString().padStart(2, '0')}:${minutes}</dd>
   `;
 
-  fragment.appendChild(list);
-  return fragment
+  fragment.appendChild(list)
+  return fragment;
 }
 
 const {NM372, SV782} = data.response.data
